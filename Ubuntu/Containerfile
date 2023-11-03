@@ -1,0 +1,9 @@
+FROM docker.io/library/ubuntu:22.04
+RUN apt-get update && apt-get install -y fzf
+RUN apt-get update && apt-get install -y bat
+RUN apt-get update && apt-get install -y git
+RUN apt-get update && apt-get install -y zsh
+RUN apt-get update && apt-get install -y breeze-cursor-theme
+RUN echo 'export XDG_CONFIG_HOME="$HOME/.config"' >> /etc/zsh/zshenv && \
+    echo 'export ZDOTDIR="$HOME/.cache/zsh"' >> /etc/zsh/zshenv
+

@@ -1,0 +1,22 @@
+FROM registry.opensuse.org/opensuse/distrobox:latest
+
+RUN sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+RUN sudo zypper addrepo https://packages.microsoft.com/yumrepos/vscode vscode
+RUN sudo zypper refresh
+RUN sudo zypper install -y code 
+RUN sudo zypper install -y neovim 
+RUN sudo zypper install -y bat 
+RUN sudo zypper install -y jq 
+RUN sudo zypper install -y zsh
+RUN sudo zypper install -y fzf
+RUN sudo zypper install -y git
+RUN sudo zypper install -y breeze-gtk
+RUN sudo zypper install -y awk
+RUN sudo zypper install -y iputils
+RUN sudo zypper install -y htop
+RUN sudo zypper install -y psmisc
+
+RUN sudo zypper ar https://download.opensuse.org/tumbleweed/repo/oss/ factory-oss
+RUN sudo zypper in -y eza
+RUN echo "export XDG_CONFIG_HOME=\"\$HOME/.config\"" >> /etc/zshenv
+RUN echo "export ZDOTDIR=\"\$HOME/.cache/zsh\"" >> /etc/zshenv
