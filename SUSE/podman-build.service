@@ -1,0 +1,6 @@
+[Unit]
+Description=Podman Build Service
+
+[Service]
+ExecStart=$HOME/Developer/Distrobox/SUSE/podman_build.sh
+Type=oneshot

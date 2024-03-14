@@ -15,6 +15,16 @@ RUN sudo zypper install -y awk
 RUN sudo zypper install -y iputils
 RUN sudo zypper install -y htop
 RUN sudo zypper install -y psmisc
+RUN sudo zypper in -y libfuse2 fuse libXtst libgthread-2_0-0
+RUN sudo zypper install -y git-lfs  
+
+
+RUN zypper install -y libicu
+RUN rpm --import https://packages.microsoft.com/keys/microsoft.asc
+RUN https://packages.microsoft.com/config/opensuse/15/prod.repo
+RUN mv prod.repo /etc/zypp/repos.d/microsoft-prod.repo
+RUN chown root:root /etc/zypp/repos.d/microsoft-prod.repo
+RUN zypper install -y dotnet-sdk-8.0
 
 RUN sudo zypper ar https://download.opensuse.org/tumbleweed/repo/oss/ factory-oss
 RUN sudo zypper in -y eza
