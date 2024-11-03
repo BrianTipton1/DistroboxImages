@@ -1,0 +1,8 @@
+[Unit]
+Description=Run Podman Build on Boot
+
+[Timer]
+OnBootSec=5min
+
+[Install]
+WantedBy=default.target

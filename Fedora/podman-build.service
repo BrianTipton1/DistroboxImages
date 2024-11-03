@@ -1,0 +1,6 @@
+[Unit]
+Description=Podman Build Service
+
+[Service]
+ExecStart=/home/brian/Developer/DistroboxImages/Fedora/podman_build.sh
+Type=oneshot

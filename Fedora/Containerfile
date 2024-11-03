@@ -1,0 +1,7 @@
+FROM fedora-toolbox:rawhide
+
+RUN rpm --import https://packages.microsoft.com/keys/microsoft.asc
+RUN echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
+
+RUN dnf upgrade --refresh
+RUN dnf install -y ripgrep fastfetch yt-dlp tmux fzf bat eza zsh code
